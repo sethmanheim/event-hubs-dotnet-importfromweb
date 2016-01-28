@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="WebRole" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="WorkerHost">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.ServiceBus.EventHubToUse" value="[event hub name]" />
+      <Setting name="Microsoft.ServiceBus.ServiceBusConnectionString" value="[Service Bus connection string]" />
+      <Setting name="UserName" value="[Api user name]" />
+      <Setting name="Password" value="[Api password]" />
+      <Setting name="SleepTimeMs" value="10000" />
+      <Setting name="SendJson" value="true" />
+      <Setting name="MessageSubject" value="" />
+      <Setting name="MessageDeviceId" value="" />
+      <Setting name="MessageDeviceDisplayName" value="" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
