@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CTD", "CTD", "{B635383F-586
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerHost", "WorkerHost\WorkerHost.csproj", "{25079398-1602-45EE-837C-D4195A1FBC27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.ConnectTheDots.Gateway", "..\..\Devices\Gateways\GatewayService\Gateway\Microsoft.ConnectTheDots.Gateway.csproj", "{E14D1C61-1979-452E-BE8B-0303A95EF764}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.ConnectTheDots.Gateway", "GatewayService\Gateway\Microsoft.ConnectTheDots.Gateway.csproj", "{E14D1C61-1979-452E-BE8B-0303A95EF764}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.ConnectTheDots.Common", "..\..\Devices\Gateways\GatewayService\Common\Microsoft.ConnectTheDots.Common.csproj", "{96FEDA4B-C7E0-4DDB-AD3A-BFF2FD8D973D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.ConnectTheDots.Common", "GatewayService\Common\Microsoft.ConnectTheDots.Common.csproj", "{96FEDA4B-C7E0-4DDB-AD3A-BFF2FD8D973D}"
 EndProject
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "DeployWorker", "Deploy\DeployWorker\DeployWorker.ccproj", "{1F08E11E-7E5E-4452-B32B-5E0D7F62C334}"
 EndProject

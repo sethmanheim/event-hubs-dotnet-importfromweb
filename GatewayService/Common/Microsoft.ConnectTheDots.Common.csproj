@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{88FC7CDD-ABD1-4531-BA53-4196B363CA66}</ProjectGuid>
+    <ProjectGuid>{96FEDA4B-C7E0-4DDB-AD3A-BFF2FD8D973D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ApiReaders</RootNamespace>
-    <AssemblyName>ApiReaders</AssemblyName>
+    <RootNamespace>Microsoft.ConnectTheDots.Common</RootNamespace>
+    <AssemblyName>Microsoft.ConnectTheDots.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,11 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\GatewayService\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="NLog">
+      <HintPath>..\..\packages\NLog.3.2.1\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,8 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\SensorEndpoint.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="IPAddressHelper.cs" />
+    <Compile Include="Logger\NLogEventLogger.cs" />
+    <Compile Include="Logger\SafeLogger.cs" />
+    <Compile Include="Logger\TunableLogger.cs" />
+    <Compile Include="Platform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RawXMLWithHeaderToJsonReader.cs" />
+    <Compile Include="SafeAction.cs" />
+    <Compile Include="SafeFunction.cs" />
+    <Compile Include="Threading\TaskWrapper.cs" />
+    <Compile Include="Utils\Loader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
