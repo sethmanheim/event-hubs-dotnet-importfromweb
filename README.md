@@ -21,6 +21,7 @@ Setting up the application once you have an Event Hub and its Connection String 
 4. Build the project
 5. Publish the application to your Azure subscription
 6. Verify that data is coming in to your Event Hub from the public data source.
+7. (Optional) Changing configuration of your application once it is running in the cloud
 
 
 ## Editing app.config ##
@@ -29,7 +30,7 @@ There are two sections of App.config you will need to change, appSettings and XM
 
 In the appSettings section, at a minimum enter
 
-* The **connection string to your Service Bus**. To find it, in the original [Azure management portal](http://manage.windowsazure.com), select Service Bus from the left nav menu, highlight your Namespace Name in the right pane, and click on Connection Information at the bottom of the page. In the Access connection information window that opens, highlight and copy the Connection String shown. It should look something like the following:   
+* The **connection string to your Service Bus**. To find it, in the original [Azure management portal](http://manage.windowsazure.com), select Service Bus from the left nav menu, highlight your Namespace Name in the right pane, and click on Connection Information at the bottom of the page. In the Access connection information window that opens, highlight and copy the Connection String shown. In the new [Azure management portal](http://ms.portal.azure.com), select Browse from the left nav menu, pick Service bus namespaces from the list, and then your Service Bus Namespace from the right pane to get to the same screen where you can get the Connection Screen information.  It should look something like the following:   
 ```
 Endpoint=sb://myservicebusname.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Axf5bbXYZeEaLoIeLMN2RV1sc3HdkYxFq7RX/T6a5TE=
 ```
@@ -91,3 +92,7 @@ Replace the APIAddress section with one or more URLs for web services you will a
     * Database server: no database
     * Database password: [leave suggested password]
 3. Click Publish, and wait until the status bar shows "Completed". At that point the application is running in your subscription, polling the web sites you listed for the data they publish, and pushing it to your Event Hub. From there, you can access with Stream Analytics or any other application as you would normally.
+
+## Changing configuration once your application is running in the cloud ##
+
+If you want to change the event hub you use, or the frequency the app polls the external web service, you can do that in the Azure Management Portal. To find the location, in the original [Azure management portal](http://manage.windowsazure.com), select Cloud Services from the left nav menu, click on your Cloud Services Name in the right pane, and select Configure from the top menu bar. In the new [Azure management portal](http://ms.portal.azure.com), select Browse from the left nav menu, select Cloud Services in the list, select your Cloud Service in the right pane, and click on Configuration in the Settings pane. Either of these bring you to a page where you can adjust those parameters. When you save it, the service is restarted using the new information you enter here. Any information entered here overrides anything you put in App.Config when you built and deployed your application.  
