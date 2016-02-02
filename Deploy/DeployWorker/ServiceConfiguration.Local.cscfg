@@ -7,11 +7,11 @@
       <Setting name="Microsoft.ServiceBus.ServiceBusConnectionString" value="[Service Bus connection string]" />
       <Setting name="UserName" value="[Api user name]" />
       <Setting name="Password" value="[Api password]" />
-      <Setting name="SleepTimeMs" value="10000" />
-      <Setting name="SendJson" value="true" />
-      <Setting name="MessageSubject" value="" />
-      <Setting name="MessageDeviceId" value="" />
-      <Setting name="MessageDeviceDisplayName" value="" />
+      <Setting name="SleepTimeMs" value="[Sleep time]" />
+      <Setting name="SendJson" value="[Send Xml if 'false', otherwise Json]" />
+      <Setting name="MessageSubject" value="[Message subject]" />
+      <Setting name="MessageDeviceId" value="[Message device Id]" />
+      <Setting name="MessageDeviceDisplayName" value="[Message device name]" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

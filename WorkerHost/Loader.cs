@@ -57,15 +57,15 @@ namespace WorkerHost
             {
                 CredentialToUse = new NetworkCredential(CloudConfigurationManager.GetSetting("UserName"),
                 CloudConfigurationManager.GetSetting("Password")),
-                UseXml = CloudConfigurationManager.GetSetting("SendJson").ToLowerInvariant().Contains("false"),
+                UseXml = ReadConfigValue("SendJson", "[Send Xml if 'false', otherwise Json]").ToLowerInvariant().Contains("false"),
                 XmlTemplate = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).GetSection("MergeToXML").SectionInformation.GetRawXml(),
                 ServiceBusConnectionString = ReadConfigValue("Microsoft.ServiceBus.ServiceBusConnectionString", "[Service Bus connection string]"),
                 EventHubName = ReadConfigValue("Microsoft.ServiceBus.EventHubToUse", "[event hub name]"),
-                MessageSubject = CloudConfigurationManager.GetSetting("MessageSubject"),
-                MessageDeviceId = CloudConfigurationManager.GetSetting("MessageDeviceId"),
-                MessageDeviceDisplayName = CloudConfigurationManager.GetSetting("MessageDeviceDisplayName")
+                MessageSubject = ReadConfigValue("MessageSubject", "[Message subject]"),
+                MessageDeviceId = ReadConfigValue("MessageDeviceId", "[Message device Id]"),
+                MessageDeviceDisplayName = ReadConfigValue("MessageDeviceDisplayName", "[Message device name]")
             };
-            if (!int.TryParse(CloudConfigurationManager.GetSetting("SleepTimeMs"), out config.SleepTimeMs))
+            if (!int.TryParse(ReadConfigValue("SleepTimeMs", "[Sleep time]"), out config.SleepTimeMs))
             {
                 logger.LogInfo("Incorrect SleepTimeMs value, using default...");
                 //default sleep time interval is 10 sec
