@@ -46,7 +46,7 @@ Replace [Service Bus connection string] with the whole of the string that you co
 ```
 Replace [event hub name] with the name of the event hub that you created.
 
-* The **XML to JSON conversion flag**. If your data source sends you JSON formatted data, you are fine and do not need to change anything. On the other hand, if it sends you XML rather than JSON, you need the application to convert the XML into JSON before sending it to your event Hub. Find the line that says
+* The **XML to JSON conversion flag**. If your data source sends you JSON formatted data, you are fine and do not need to change anything. On the other hand, if it sends you XML, and you leave sendJSON as false, the output will be XML. If you change sendJSON to true, it will send JSON regardless of input format. Find the line that says
 ```
 <add key="SendJson" value="false" />
 ```
