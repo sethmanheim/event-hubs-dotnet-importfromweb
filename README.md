@@ -1,5 +1,5 @@
 ---
-services: event-hubs, iot-hub, cloud-services, notification-hubs
+services: event-hubs, iot-hub, cloud-services
 platforms: dotnet
 author: spyrossak
 ---
