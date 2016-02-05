@@ -1,3 +1,9 @@
+---
+services: event-hubs, iot-hub, cloud-services, notification-hubs
+platforms: dotnet
+author: spyrossak
+---
+
 ## Generic Web Service to Event Hub scenario ##
 
 Generally speaking, you will have devices which you want to connect to Azure, and the examples in the [Getting Started ](https://github.com/Azure/connectthedots/blob/master/GettingStarted.md ) section of [Connect The Dots ](https://github.com/Azure/connectthedots ) and in the various subdirectories show you one way to do this. The best way would be to use Microsoft's [IoT Suite](https://azure.microsoft.com/en-us/solutions/iot-suite/). 
