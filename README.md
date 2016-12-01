@@ -4,21 +4,21 @@ platforms: dotnet
 author: spyrossak
 ---
 
-# Generic Web Service to Event Hub scenario #
+# Generic Web Service to Event Hub scenario
 
 Generally speaking, you will have devices which you want to connect to Azure, and the examples in the [Getting Started ](https://github.com/Azure/connectthedots/blob/master/GettingStarted.md ) section of [Connect The Dots ](https://github.com/Azure/connectthedots ) and in the various subdirectories show you one way to do this. The best way would be to use Microsoft's [IoT Suite](https://azure.microsoft.com/en-us/solutions/iot-suite/). 
 
 However, there are times when you do not have access to the devices or data producers, for example when you want to use public data feeds (such as the Department of Transportation's traffic information feed) as your data source. In this case you do not have the ability to put any code on the device or remote gateway to push the data to an Azure Event Hub or IoT Hub; rather, you need to set up something to pull the data from those sources and then push it to Azure. The simplest way is to run an application in Azure to do this. The code in this project is an example of how to do this. It is not a supported solution, or even a recommended one, but simply an example.
 
-For more information about this sample, see the [Pulling public data into Azure Event Hubs](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb/event-hubs-pulling-public-data.md) topic in this repository.
+For more information about this sample, see the [Pulling public data into Azure Event Hubs](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb/blob/master/event-hubs-pulling-public-data.md) topic in this repository.
 
-## Prerequisites ##
+## Prerequisites
 
 * An Azure subscription. In order to configure and deploy the application you will need to have set up a Service Bus namespace and an Event Hub. An easy way to do this is to use [AzurePrep](https://github.com/Azure/connectthedots/tree/master/Azure/AzurePrep ), in the [ConnectTheDots](http://connectthedots.io ) open source project, but that is not a prerequisite - set up the Event Hub manually if you like. Just make sure to configure at least one Shared Access Policy for the event hub.
 * A version of Visual Studio installed on your desktop.
 * Access to a source of data - either a public source not requiring credentials, or a private source and access credentials   
 
-## Setup Tasks ##
+## Setup Tasks
 
 Setting up the application once you have an Event Hub and its Connection String involves the following tasks, which will be described in greater detail below.
 
@@ -31,7 +31,7 @@ Setting up the application once you have an Event Hub and its Connection String 
 7. (Optional) Changing configuration of your application once it is running in the cloud
 
 
-## Editing app.config ##
+## Editing app.config
 
 There are two sections of App.config you will need to change, appSettings and XMLApiListConfig.
 
@@ -90,7 +90,7 @@ Replace the APIAddress section with one or more URLs for web services you will a
       <add APIAddress="https://www.somepublicdatasource.com/feed3"/>
     </XMLApiListConfig>
 
-## Publishing the application ##
+## Publishing the application
 
 1. In Visual Studio, right-click on 'DeployWorker' in Solution 'GenericWebToEH'/Azure, and select *Publish*.
 2. In the Publish Azure Application, answer the following questions. 
@@ -100,6 +100,6 @@ Replace the APIAddress section with one or more URLs for web services you will a
     * Database password: [leave suggested password]
 3. Click Publish, and wait until the status bar shows "Completed". At that point the application is running in your subscription, polling the web sites you listed for the data they publish, and pushing it to your Event Hub. From there, you can access with Stream Analytics or any other application as you would normally.
 
-## Changing configuration once your application is running in the cloud ##
+## Changing configuration once your application is running in the cloud
 
 If you want to change the event hub you use, or the frequency the app polls the external web service, you can do that in the Azure Management Portal. To find the location, in the original [Azure management portal](http://manage.windowsazure.com), select Cloud Services from the left nav menu, click on your Cloud Services Name in the right pane, and select Configure from the top menu bar. In the new [Azure management portal](http://ms.portal.azure.com), select Browse from the left nav menu, select Cloud Services in the list, select your Cloud Service in the right pane, and click on Configuration in the Settings pane. Either of these bring you to a page where you can adjust those parameters. When you save it, the service is restarted using the new information you enter here. Any information entered here overrides anything you put in App.Config when you built and deployed your application.  
