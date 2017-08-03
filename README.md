@@ -14,7 +14,7 @@ For more information about this sample, see the [Pulling public data into Azure 
 
 ## Prerequisites
 
-* An Azure subscription. In order to configure and deploy the application you will need to have set up a Service Bus namespace and an Event Hub. An easy way to do this is to use [AzurePrep](https://github.com/Azure/connectthedots/tree/master/Azure/AzurePrep ), in the [ConnectTheDots](http://connectthedots.io ) open source project, but that is not a prerequisite - set up the Event Hub manually if you like. Just make sure to configure at least one Shared Access Policy for the event hub.
+* An Azure subscription. In order to configure and deploy the application you will need to create an Event Hubs namespace and an event hub. An easy way to do this is to use [AzurePrep](https://github.com/Azure/connectthedots/tree/master/Azure/AzurePrep ), in the [ConnectTheDots](http://connectthedots.io) open source project, but that is not a prerequisite - set up the event hub manually if you like. Just make sure to configure at least one Shared Access Policy for the event hub.
 * A version of Visual Studio installed on your desktop.
 * Access to a source of data - either a public source not requiring credentials, or a private source and access credentials   
 
@@ -37,15 +37,12 @@ There are two sections of App.config you will need to change, appSettings and XM
 
 In the appSettings section, at a minimum enter
 
-* The **connection string to your Service Bus**. To find it, in the original [Azure management portal](http://manage.windowsazure.com), select Service Bus from the left nav menu, highlight your Namespace Name in the right pane, and click on Connection Information at the bottom of the page. In the Access connection information window that opens, highlight and copy the Connection String shown. In the new [Azure management portal](http://ms.portal.azure.com), select Browse from the left nav menu, pick Service bus namespaces from the list, and then your Service Bus Namespace from the right pane to get to the same screen where you can get the Connection Screen information.  It should look something like the following:   
-```
-Endpoint=sb://myservicebusname.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Axf5bbXYZeEaLoIeLMN2RV1sc3HdkYxFq7RX/T6a5TE=
-```
-Find the appSettings section in App.Config, and the line that says
+* The **connection string to your event hub**. To find it, go to the [Azure portal](https://portal.azure.com), select your Event Hubs namespace from the list of resources, click **Shared access policies**, and then click the default **RootManageSharedAccessKey** policy. Copy the **Connection String - Primary Key** shown.
+* Find the appSettings section in App.Config, and the line that says
 ```
 <add key="Microsoft.ServiceBus.ServiceBusConnectionString" value="[Service Bus connection string]" />
 ```
-Replace [Service Bus connection string] with the whole of the string that you copied from the management portal, starting with "Endpoint" and ending with an "=".
+Replace [Service Bus connection string] with the string that you copied from the portal, starting with "Endpoint" and ending with an "=".
 
 * The **name of the Event Hub** to which you want the data sent. Find the line in the appSettings section that says
 ```
